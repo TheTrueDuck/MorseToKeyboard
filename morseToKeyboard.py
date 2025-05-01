@@ -106,27 +106,36 @@ try:
     SpecialKeys = {
         #--not official--
         #mouse movements need coords! also prob make UI and MO switxh. Nah moving happen way more
-        "..-...-": lambda: mouseController.move(0, 1), #UIA = UI Above = move mouse up
-        "..-..-.": lambda: mouseController.move(0, -1), #UIN = UI dowN = move mouse down
-        "..-...": lambda: mouseController.move(-1, 0), #UIE = UI lEft = move mouse left
-        "..-..-": lambda: mouseController.move(1, 0), #UIT = UI righT = move mouse right
+        # "..-...-": lambda: mouseController.move(0, 1), #UIA = UI Above = move mouse up
+        # "..-..-.": lambda: mouseController.move(0, -1), #UIN = UI dowN = move mouse down
+        # "..-...": lambda: mouseController.move(-1, 0), #UIE = UI lEft = move mouse left
+        # "..-..-": lambda: mouseController.move(1, 0), #UIT = UI righT = move mouse right
+        
+        "..-...-": lambda: mouseController.move(0, -100), #UIA = UI Above = move mouse up
+        "..-..-.": lambda: mouseController.move(0, 100), #UIN = UI dowN = move mouse down
+        "..-....": lambda: mouseController.move(100, 0), #UII = UI rIght = move mouse right
+        "..-..--": lambda: mouseController.move(-100, 0), #UIM = UI towards Marxism/coMMunisM (left) = move mouse left
 
         # "..---.-": lambda: mouseController.click(mouse.Button.scroll_up), #2A = scroll 2 Above = scroll up
         # "..----.": lambda: mouseController.click(mouse.Button.scroll_down), #2N = scroll 2 dowN = scroll down
         # "..---.": lambda: mouseController.click(mouse.Button.scroll_left), #2E = scroll 2 lEft = scroll left
         # "..----": lambda: mouseController.click(mouse.Button.scroll_right), #2T = scroll 2 righT = scroll right
         
-        "..---.-": lambda: mouseController.scroll(0, 1), #2A = scroll 2 Above = scroll up
-        "..----.": lambda: mouseController.scroll(0, -1), #2N = scroll 2 dowN = scroll down
-        "..---.": lambda: mouseController.scroll(-1, 0), #2E = scroll 2 lEft = scroll left
-        "..----": lambda: mouseController.scroll(1, 0), #2T = scroll 2 righT = scroll right
+        # "..---.-": lambda: mouseController.scroll(0, 1), #2A = scroll 2 Above = scroll up
+        # "..----.": lambda: mouseController.scroll(0, -1), #2N = scroll 2 dowN = scroll down
+        # "..---.": lambda: mouseController.scroll(-1, 0), #2E = scroll 2 lEft = scroll left
+        # "..----": lambda: mouseController.scroll(1, 0), #2T = scroll 2 righT = scroll right
+        
+        "..---.-": lambda: mouseController.scroll(0, 1), #2A = scroll 2wards Above = scroll up
+        "..----.": lambda: mouseController.scroll(0, -1), #2N = scroll 2wards dowN = scroll down
+        "..---..": lambda: mouseController.scroll(1, 0), #2I = scroll 2wards rIght = scroll right
+        "..-----": lambda: mouseController.scroll(-1, 0), #2M = scroll 2wards Marxism/coMMunisM (left) = scroll left
 
         "-----.": lambda: mouseController.click(mouse.Button.left, 1),    #MOE = MOuse lEft                 = mouse left click
         "-----..": lambda: mouseController.click(mouse.Button.left, 2),   #MOEE = MOuse lEft lEft           = mouse left double click
         "-----...": lambda: mouseController.click(mouse.Button.left, 3),  #MOEEE = MOuse lEft lEft lEft     = mouse left triple click
         "-----....": lambda: SlowMultiClick(mouse.Button.left, 3, 0.1), #MOEEEE = MOuse lEft lEft lEft Eh = mouse left slow triple click (sometimes instant triple click doesn't register)
         "------": lambda: mouseController.click(mouse.Button.right, 1),   #MOT = MOuse righT                = mouse right click
-        # "-------": lambda: with OutMouseListener(): mouseController.click(mouse.Button.middle, 1), #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
         "-------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 1)), #MOM = MOuse Middle               = mouse middle click
         "--------": lambda: mouseController.click(mouse.Button.right, 2), #MOMT = MOuse Multi righT         = mouse double right click
         "---------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 2)), #MOMM = MOuse Multi Middle      = mouse double middle click
@@ -181,10 +190,15 @@ try:
         
         "....-.-.": keyboard.Key.esc, #ESC = ESCape     
         
+        # "...--.-": keyboard.Key.up, #3A = k3yboard Above = up arrow
+        # "...---.": keyboard.Key.down, #3N = k3yboard dowN = down arrow
+        # "...--.": keyboard.Key.left, #3E = k3yboard lEft = left arrow
+        # "...---": keyboard.Key.right, #3T = k3yboard righT = right arrow  
+        
         "...--.-": keyboard.Key.up, #3A = k3yboard Above = up arrow
         "...---.": keyboard.Key.down, #3N = k3yboard dowN = down arrow
-        "...--.": keyboard.Key.left, #3E = k3yboard lEft = left arrow
-        "...---": keyboard.Key.right, #3T = k3yboard righT = right arrow  
+        "...--..": keyboard.Key.right, #3I = k3yboard rIght = right arrow  
+        "...----": keyboard.Key.left, #3M = k3yboard towards Marxism/coMMunisM (left) = left arrow
         
         "..-..----": keyboard.Key.f1, #F1
         "..-...---": keyboard.Key.f2, #F2
@@ -206,6 +220,28 @@ try:
         "..-..-------..": keyboard.Key.f18, #F18
         "..-..--------.": keyboard.Key.f19, #F19
         "..-...--------": keyboard.Key.f20, #F20
+        
+        #shortened notation
+        # "..-..-": keyboard.Key.f1, #F1
+        # "..-...-": keyboard.Key.f2, #F2
+        # "..-....-": keyboard.Key.f3, #F3
+        # "..-.....-": keyboard.Key.f4, #F4
+        # "..-......": keyboard.Key.f5, #F5
+        # "..-.-....": keyboard.Key.f6, #F6
+        # "..-.-...": keyboard.Key.f7, #F7
+        # "..-.-..": keyboard.Key.f8, #F8
+        # "..-.-.": keyboard.Key.f9, #F9
+        # "..-..--": keyboard.Key.f10, #F10
+        # "..-..-.-": keyboard.Key.f11, #F11
+        # "..-..-..-": keyboard.Key.f12, #F12
+        # "..-..-...-": keyboard.Key.f13, #F13
+        # "..-..-....-": keyboard.Key.f14, #F14
+        # "..-..-.....": keyboard.Key.f15, #F15
+        # "..-..--....": keyboard.Key.f16, #F16
+        # "..-..--...": keyboard.Key.f17, #F17
+        # "..-..--..": keyboard.Key.f18, #F18
+        # "..-..--.": keyboard.Key.f19, #F19
+        # "..-...--": keyboard.Key.f20, #F20
     }
 
     HeldKeys = {
