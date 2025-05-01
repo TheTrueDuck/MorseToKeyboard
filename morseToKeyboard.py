@@ -111,10 +111,64 @@ try:
         # "..-...": lambda: mouseController.move(-1, 0), #UIE = UI lEft = move mouse left
         # "..-..-": lambda: mouseController.move(1, 0), #UIT = UI righT = move mouse right
         
+        ".......-...-": lambda: mouseController.move(0, -100), #EEEEEUIA = ElusivE*5 UI Above = move mouse up
+        ".......-..-.": lambda: mouseController.move(0, 100), #EEEEEUIN = ElusivE*5 UI dowN = move mouse down
+        ".......-....": lambda: mouseController.move(100, 0), #EEEEEUII = ElusivE*5 UI rIght = move mouse right
+        ".......-..--": lambda: mouseController.move(-100, 0), #EEEEEUIM = ElusivE*5 UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "......-...-": lambda: mouseController.move(0, -100), #EEEEUIA = ElusivE*4 UI Above = move mouse up
+        "......-..-.": lambda: mouseController.move(0, 100), #EEEEUIN = ElusivE*4 UI dowN = move mouse down
+        "......-....": lambda: mouseController.move(100, 0), #EEEEUII = ElusivE*4 UI rIght = move mouse right
+        "......-..--": lambda: mouseController.move(-100, 0), #EEEEUIM = ElusivE*4 UI towards Marxism/coMMunisM (left) = move mouse left        
+        
+        ".....-...-": lambda: mouseController.move(0, -100), #EEEUIA = ElusivE*3 UI Above = move mouse up
+        ".....-..-.": lambda: mouseController.move(0, 100), #EEEUIN = ElusivE*3 UI dowN = move mouse down
+        ".....-....": lambda: mouseController.move(100, 0), #EEEUII = ElusivE*3 UI rIght = move mouse right
+        ".....-..--": lambda: mouseController.move(-100, 0), #EEEUIM = ElusivE*3 UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "....-...-": lambda: mouseController.move(0, -100), #EEUIA = ElusivE*2 UI Above = move mouse up
+        "....-..-.": lambda: mouseController.move(0, 100), #EEUIN = ElusivE*2 UI dowN = move mouse down
+        "....-....": lambda: mouseController.move(100, 0), #EEUII = ElusivE*2 UI rIght = move mouse right
+        "....-..--": lambda: mouseController.move(-100, 0), #EEUIM = ElusivE*2 UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "...-...-": lambda: mouseController.move(0, -100), #EUIA = ElusivE UI Above = move mouse up
+        "...-..-.": lambda: mouseController.move(0, 100), #EUIN = ElusivE UI dowN = move mouse down
+        "...-....": lambda: mouseController.move(100, 0), #EUII = ElusivE UI rIght = move mouse right
+        "...-..--": lambda: mouseController.move(-100, 0), #EUIM = ElusivE UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        
+        
         "..-...-": lambda: mouseController.move(0, -100), #UIA = UI Above = move mouse up
         "..-..-.": lambda: mouseController.move(0, 100), #UIN = UI dowN = move mouse down
         "..-....": lambda: mouseController.move(100, 0), #UII = UI rIght = move mouse right
         "..-..--": lambda: mouseController.move(-100, 0), #UIM = UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        
+        
+        "-..-...-": lambda: mouseController.move(0, -100), #TUIA = TiTanic UI Above = move mouse up
+        "-..-..-.": lambda: mouseController.move(0, 100), #TUIN = TiTanic UI dowN = move mouse down
+        "-..-....": lambda: mouseController.move(100, 0), #TUII = TiTanic UI rIght = move mouse right
+        "-..-..--": lambda: mouseController.move(-100, 0), #TUIM = TiTanic UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "--..-...-": lambda: mouseController.move(0, -100), #TTUIA = TiTanic*2 UI Above = move mouse up
+        "--..-..-.": lambda: mouseController.move(0, 100), #TTUIN = TiTanic*2 UI dowN = move mouse down
+        "--..-....": lambda: mouseController.move(100, 0), #TTUII = TiTanic*2 UI rIght = move mouse right
+        "--..-..--": lambda: mouseController.move(-100, 0), #TTUIM = TiTanic*2 UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "---..-...-": lambda: mouseController.move(0, -100), #TTTUIA = TiTanic*3 UI Above = move mouse up
+        "---..-..-.": lambda: mouseController.move(0, 100), #TTTUIN = TiTanic*3 UI dowN = move mouse down
+        "---..-....": lambda: mouseController.move(100, 0), #TTTUII = TiTanic*3 UI rIght = move mouse right
+        "---..-..--": lambda: mouseController.move(-100, 0), #TTTUIM = TiTanic*3 UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "----..-...-": lambda: mouseController.move(0, -100), #TTTTUIA = TiTanic*4 UI Above = move mouse up
+        "----..-..-.": lambda: mouseController.move(0, 100), #TTTTUIN = TiTanic*4 UI dowN = move mouse down
+        "----..-....": lambda: mouseController.move(100, 0), #TTTTUII = TiTanic*4 UI rIght = move mouse right
+        "----..-..--": lambda: mouseController.move(-100, 0), #TTTTUIM = TiTanic*4 UI towards Marxism/coMMunisM (left) = move mouse left
+        
+        "-----..-...-": lambda: mouseController.move(0, -100), #TTTTTUIA = TiTanic*5 UI Above = move mouse up
+        "-----..-..-.": lambda: mouseController.move(0, 100), #TTTTTUIN = TiTanic*5 UI dowN = move mouse down
+        "-----..-....": lambda: mouseController.move(100, 0), #TTTTTUII = TiTanic*5 UI rIght = move mouse right
+        "-----..-..--": lambda: mouseController.move(-100, 0), #TTTTTUIM = TiTanic*5 UI towards Marxism/coMMunisM (left) = move mouse left
 
         # "..---.-": lambda: mouseController.click(mouse.Button.scroll_up), #2A = scroll 2 Above = scroll up
         # "..----.": lambda: mouseController.click(mouse.Button.scroll_down), #2N = scroll 2 dowN = scroll down
