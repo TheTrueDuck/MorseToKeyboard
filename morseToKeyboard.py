@@ -15,7 +15,7 @@ try:
     VolumeInDecibels = -35
     MorseKey = keyboard.Key.space
 
-    SupressKeyboardEvents = True
+    SuppressKeyboardEvents = True
     SupressMouseEvents = False
 
     KeyboardTeminateKey = keyboard.Key.esc
@@ -91,7 +91,7 @@ try:
         ".---.": "ĵ",
         "--.--": "ñ", #also ń
         "---.": "ö", #also ø, ó
-        "...-..": "ś",
+        "...-...": "ś",
         ".--..": "þ",
         "..--": "ü", #also ŭ
         "--..-.": "ź",
@@ -101,53 +101,76 @@ try:
         #--not official--
         "...-.": " ", #VE = VErified = Space
         ".-..-.-": "I, in my exalted wisdom and unbridled ambition, ", #EXA = EXAlted                
-    }
+    }        
     
     SpecialKeys = {
         #--not official--
         #mouse movements need coords! also prob make UI and MO switxh. Nah moving happen way more
-        "..-...-": keyboard.Key.up, #UIA = UI Above = move mouse up
-        "..-..-.": keyboard.Key.down, #UIN = UI dowN = move mouse down
-        "..-...": keyboard.Key.left, #UIE = UI lEft = move mouse left
-        "..-..-": keyboard.Key.right, #UIT = UI righT = move mouse right
+        "..-...-": lambda: mouseController.move(0, 1), #UIA = UI Above = move mouse up
+        "..-..-.": lambda: mouseController.move(0, -1), #UIN = UI dowN = move mouse down
+        "..-...": lambda: mouseController.move(-1, 0), #UIE = UI lEft = move mouse left
+        "..-..-": lambda: mouseController.move(1, 0), #UIT = UI righT = move mouse right
 
-        "..---.-": mouse.Button.scroll_up, #2A = scroll 2 Above = scroll up
-        "..----.": mouse.Button.scroll_down, #2N = scroll 2 dowN = scroll down
-        "..---.": mouse.Button.scroll_left, #2E = scroll 2 lEft = scroll left
-        "..----": mouse.Button.scroll_right, #2T = scroll 2 righT = scroll right
+        # "..---.-": lambda: mouseController.click(mouse.Button.scroll_up), #2A = scroll 2 Above = scroll up
+        # "..----.": lambda: mouseController.click(mouse.Button.scroll_down), #2N = scroll 2 dowN = scroll down
+        # "..---.": lambda: mouseController.click(mouse.Button.scroll_left), #2E = scroll 2 lEft = scroll left
+        # "..----": lambda: mouseController.click(mouse.Button.scroll_right), #2T = scroll 2 righT = scroll right
+        
+        "..---.-": lambda: mouseController.scroll(0, 1), #2A = scroll 2 Above = scroll up
+        "..----.": lambda: mouseController.scroll(0, -1), #2N = scroll 2 dowN = scroll down
+        "..---.": lambda: mouseController.scroll(-1, 0), #2E = scroll 2 lEft = scroll left
+        "..----": lambda: mouseController.scroll(1, 0), #2T = scroll 2 righT = scroll right
 
-        "-----.": mouse.Button.left,    #MOE = MOuse lEft                 = mouse left click
-        "-----..": mouse.Button.left,   #MOEE = MOuse lEft lEft           = mouse left double click
-        "-----...": mouse.Button.left,  #MOEEE = MOuse lEft lEft lEft     = mouse left triple click
-        "-----....": mouse.Button.left, #MOEEEE = MOuse lEft lEft lEft Eh = mouse left slow triple click (sometimes instant triple click doesn't register)
-        "------": mouse.Button.right,   #MOT = MOuse righT                = mouse right click
-        "-------": mouse.Button.middle, #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
-        "--------": mouse.Button.right, #MOIT = MOuse twIce righT         = mouse double right click
-        "---------": mouse.Button.middle, #MOII = MOuse twIce mIddle      = mouse double middle click
+        "-----.": lambda: mouseController.click(mouse.Button.left, 1),    #MOE = MOuse lEft                 = mouse left click
+        "-----..": lambda: mouseController.click(mouse.Button.left, 2),   #MOEE = MOuse lEft lEft           = mouse left double click
+        "-----...": lambda: mouseController.click(mouse.Button.left, 3),  #MOEEE = MOuse lEft lEft lEft     = mouse left triple click
+        "-----....": lambda: SlowMultiClick(mouse.Button.left, 3, 0.1), #MOEEEE = MOuse lEft lEft lEft Eh = mouse left slow triple click (sometimes instant triple click doesn't register)
+        "------": lambda: mouseController.click(mouse.Button.right, 1),   #MOT = MOuse righT                = mouse right click
+        # "-------": lambda: with OutMouseListener(): mouseController.click(mouse.Button.middle, 1), #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
+        "-------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 1)), #MOM = MOuse Middle               = mouse middle click
+        "--------": lambda: mouseController.click(mouse.Button.right, 2), #MOMT = MOuse Multi righT         = mouse double right click
+        "---------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 2)), #MOMM = MOuse Multi Middle      = mouse double middle click
+        
+        # "------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.right, 1)),   #MOT = MOuse righT                = mouse right click
+        # # "-------": lambda: with OutMouseListener(): mouseController.click(mouse.Button.middle, 1), #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
+        # "-------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 1)), #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
+        # "--------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.right, 2)), #MOIT = MOuse twIce righT         = mouse double right click
+        # "---------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 2)), #MOII = MOuse twIce mIddle      = mouse double middle click
+        
+        
+        # "-----.": mouse.Button.left,    #MOE = MOuse lEft                 = mouse left click
+        # "-----..": mouse.Button.left,   #MOEE = MOuse lEft lEft           = mouse left double click
+        # "-----...": mouse.Button.left,  #MOEEE = MOuse lEft lEft lEft     = mouse left triple click
+        # "-----....": mouse.Button.left, #MOEEEE = MOuse lEft lEft lEft Eh = mouse left slow triple click (sometimes instant triple click doesn't register)
+        # "------": mouse.Button.right,   #MOT = MOuse righT                = mouse right click
+        # "-------": mouse.Button.middle, #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
+        # "--------": mouse.Button.right, #MOIT = MOuse twIce righT         = mouse double right click
+        # "---------": mouse.Button.middle, #MOII = MOuse twIce mIddle      = mouse double middle click
         #these numbered button seem to be offset by 4. I expect this is because button4-7 are taken by the scroll buttons
-        "-----....-": mouse.Button.button8, #MO4 = MOuse lEft = mouse button 4/back click
-        "-----.....": mouse.Button.button9, #MO5 = MOuse lEft = mouse button 5/forward click
-        "------....": mouse.Button.button10, #MO6 = MOuse lEft = mouse button 6 click 
-        "-------...": mouse.Button.button11, #MO7 = MOuse lEft = mouse button 7 click 
-        "--------..": mouse.Button.button12, #MO8 = MOuse lEft = mouse button 8 click 
-        "---------.": mouse.Button.button13, #MO9 = MOuse lEft = mouse button 9 click 
-        "-----.---------": mouse.Button.button14, #MO10 = MOuse lEft = mouse button 10 click 
-        "-----.----.----": mouse.Button.button15, #MO11 = MOuse lEft = mouse button 11 click 
-        "-----.----..---": mouse.Button.button16, #MO12 = MOuse lEft = mouse button 12 click 
-        "-----.----...--": mouse.Button.button17, #MO13 = MOuse lEft = mouse button 13 click 
-        "-----.----....-": mouse.Button.button18, #MO14 = MOuse lEft = mouse button 14 click 
-        "-----.----.....": mouse.Button.button19, #MO15 = MOuse lEft = mouse button 15 click 
-        "-----.-----....": mouse.Button.button20, #MO16 = MOuse lEft = mouse button 16 click 
-        "-----.------...": mouse.Button.button21, #MO17 = MOuse lEft = mouse button 17 click 
-        "-----.-------..": mouse.Button.button22, #MO18 = MOuse lEft = mouse button 18 click 
-        "-----.--------.": mouse.Button.button23, #MO19 = MOuse lEft = mouse button 19 click 
-        "-----..--------": mouse.Button.button24, #MO20 = MOuse lEft = mouse button 20 click 
-        "-----..---.----": mouse.Button.button25, #MO21 = MOuse lEft = mouse button 21 click 
-        "-----..---..---": mouse.Button.button26, #MO22 = MOuse lEft = mouse button 22 click 
-        "-----..---...--": mouse.Button.button27, #MO23 = MOuse lEft = mouse button 23 click 
-        "-----..---....-": mouse.Button.button28, #MO24 = MOuse lEft = mouse button 24 click 
-        "-----..---.....": mouse.Button.button29, #MO25 = MOuse lEft = mouse button 25 click 
-        "-----..----....": mouse.Button.button30, #MO26 = MOuse lEft = mouse button 26 click 
+        #if these produce an error, it may be because windows doesn't support them. In that case, use Buttons x1 and x2 for back and forward and delete the rest.
+        "-----....-": lambda: mouseController.click(mouse.Button.button8), #M4 = MOuse 4 = mouse button 4/back click
+        "-----.....": lambda: mouseController.click(mouse.Button.button9), #M5 = MOuse 5 = mouse button 5/forward click
+        "------....": lambda: mouseController.click(mouse.Button.button10), #M6 = MOuse 6 = mouse button 6 click 
+        "-------...": lambda: mouseController.click(mouse.Button.button11), #M7 = MOuse 7 = mouse button 7 click 
+        "--------..": lambda: mouseController.click(mouse.Button.button12), #M8 = MOuse 8 = mouse button 8 click 
+        "---------.": lambda: mouseController.click(mouse.Button.button13), #M9 = MOuse 9 = mouse button 9 click 
+        "-----.---------": lambda: mouseController.click(mouse.Button.button14), #M10 = MOuse 10 = mouse button 10 click 
+        "-----.----.----": lambda: mouseController.click(mouse.Button.button15), #M11 = MOuse 11 = mouse button 11 click 
+        "-----.----..---": lambda: mouseController.click(mouse.Button.button16), #M12 = MOuse 12 = mouse button 12 click 
+        "-----.----...--": lambda: mouseController.click(mouse.Button.button17), #M13 = MOuse 13 = mouse button 13 click 
+        "-----.----....-": lambda: mouseController.click(mouse.Button.button18), #M14 = MOuse 14 = mouse button 14 click 
+        "-----.----.....": lambda: mouseController.click(mouse.Button.button19), #M15 = MOuse 15 = mouse button 15 click 
+        "-----.-----....": lambda: mouseController.click(mouse.Button.button20), #M16 = MOuse 16 = mouse button 16 click 
+        "-----.------...": lambda: mouseController.click(mouse.Button.button21), #M17 = MOuse 17 = mouse button 17 click 
+        "-----.-------..": lambda: mouseController.click(mouse.Button.button22), #M18 = MOuse 18 = mouse button 18 click 
+        "-----.--------.": lambda: mouseController.click(mouse.Button.button23), #M19 = MOuse 19 = mouse button 19 click 
+        "-----..--------": lambda: mouseController.click(mouse.Button.button24), #M20 = MOuse 20 = mouse button 20 click 
+        "-----..---.----": lambda: mouseController.click(mouse.Button.button25), #M21 = MOuse 21 = mouse button 21 click 
+        "-----..---..---": lambda: mouseController.click(mouse.Button.button26), #M22 = MOuse 22 = mouse button 22 click 
+        "-----..---...--": lambda: mouseController.click(mouse.Button.button27), #M23 = MOuse 23 = mouse button 23 click 
+        "-----..---....-": lambda: mouseController.click(mouse.Button.button28), #M24 = MOuse 24 = mouse button 24 click 
+        "-----..---.....": lambda: mouseController.click(mouse.Button.button29), #M25 = MOuse 25 = mouse button 25 click 
+        "-----..----....": lambda: mouseController.click(mouse.Button.button30), #M26 = MOuse 26 = mouse button 26 click 
         
     }
     
@@ -283,63 +306,74 @@ try:
             sinewave.stop()
 
 
-
-
     def on_move(x, y):
-        # print('Pointer moved to {0}'.format((x, y)))
         pass
-    
     def on_click(x, y, button, pressed):
-        # if pressed:
-        #     print(button)
-        # print('{0} {2} at {1}'.format(
-        #     'Pressed' if pressed else 'Released',
-        #     (x, y),
-        #     button))
         if button == MouseTeminateKey and not pressed:
-            # Stop listener
             return False
-
     def on_scroll(x, y, dx, dy):
-        # print('Scrolled {0} at {1}'.format(
-        #     'down' if dy < 0 else 'up',
-        #     (x, y)))
         pass
 
 
-
+    def SlowMultiClick(button, timesToClick, delay):
+        for i in range(timesToClick):
+            if i != 0: time.sleep(delay)
+            mouseController.press(button)
+            time.sleep(delay)
+            mouseController.release(button)
 
     # from pynput.mouse import Button, Controller
+    
+    class OutKeyboardListener:
+        def __init__(self, function = None):
+            if(function != None):
+                with OutKeyboardListener():
+                    function()
+                    
+        def __enter__(self):
+            global keyboardListener
+            keyboardListener.stop()
+            return self
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            global keyboardListener
+            keyboardListener = keyboard.Listener(
+                on_press=on_press,
+                on_release=on_release,
+                suppress=SuppressKeyboardEvents
+            )
+            keyboardListener.start()
+            
+    class OutMouseListener:
+        def __init__(self, function = None):
+            if(function != None):
+                with OutMouseListener():
+                    function()
+        
+        def __enter__(self):
+            global mouseListener
+            mouseListener.stop()
+            return self
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            global mouseListener
+            mouseListener = mouse.Listener(
+                on_move=on_move,
+                on_click=on_click,
+                on_scroll=on_scroll,
+                suppress=SupressMouseEvents)
+            mouseListener.start()
+                                
+
 
     mouseController = mouse.Controller()
-    # mouseController.click(mouse.Button.left)
-    # mouseController.click(mouse.Button.left, 2)
-    # mouseController.click(mouse.Button.left, 3)
     
-    # mouseController.click(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.click(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.click(mouse.Button.left)
-    # time.sleep(0.1)
     
-    # mouseController.press(mouse.Button.left)
-    # mouseController.release(mouse.Button.left)
-    # mouseController.click(mouse.Button.left)
-    # mouseController.click(mouse.Button.left)
-    # mouseController.press(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.release(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.press(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.release(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.press(mouse.Button.left)
-    # time.sleep(0.1)
-    # mouseController.release(mouse.Button.left)
-    # time.sleep(0.1)
-
+    mouseController.move(73, 73)
+    # mouseController.move(73, 73)
+    
+    # mouseController.move(2477, 2477)
+    
     # # Read pointer position
     # print('The current pointer position is {0}'.format(
     #     mouse.position))
@@ -387,11 +421,29 @@ try:
     keyboardListener = keyboard.Listener(
         on_press=on_press,
         on_release=on_release,
-        suppress=SupressKeyboardEvents)
+        suppress=SuppressKeyboardEvents)
     keyboardListener.start()
 
 
     controller = keyboard.Controller()
+    
+    
+    
+    # with OutKeyboardListener():
+    #     controller.tap(keyboard.Key.esc) 
+    #     controller.tap(keyboard.Key.esc) 
+    # def multitap():
+    #     controller.tap(keyboard.Key.esc)
+    #     controller.tap(keyboard.Key.esc)
+    
+    # OutKeyboardListener(lambda: multitap())
+    
+    # controller.tap(keyboard.Key.esc) 
+    
+    # with OutMouseListener():
+    #     mouseController.click(mouse.Button.middle)     
+    
+    
     
     canDoAutoSpace = False
     # key.tap(keyboard.Key.caps_lock)
@@ -420,7 +472,7 @@ try:
                 keyboardListener = keyboard.Listener(
                     on_press=on_press,
                     on_release=on_release,
-                    suppress=SupressKeyboardEvents)
+                    suppress=SuppressKeyboardEvents)
                 keyboardListener.start()
                 
                 print(f"Restarted listener.")
@@ -507,15 +559,15 @@ try:
             if(key[-1] == ' '): canDoAutoSpace = False
             else: canDoAutoSpace = True
         elif morse in SpecialKeys:
-            key = SpecialKeys[morse]
-            print(f"Recognized: {key}")
-            controller.tap(key)
+            function = SpecialKeys[morse]
+            print(f"Recognized function!")
+            function()
             canDoAutoSpace = False
         elif morse in KeysThatAreSuppressedForSomeReason:
             key = KeysThatAreSuppressedForSomeReason[morse]
             print(f"Recognized: {key}")
             
-            if SupressKeyboardEvents:
+            if SuppressKeyboardEvents:
                 print(f"Restarting listener...")
                 keyboardListener.stop();
                 
@@ -541,7 +593,7 @@ try:
                 keyboardListener = keyboard.Listener(
                     on_press=on_press,
                     on_release=on_release,
-                    suppress=SupressKeyboardEvents)
+                    suppress=SuppressKeyboardEvents)
                 keyboardListener.start()
                 
                 print(f"Restarted listener.")
@@ -593,7 +645,7 @@ except Exception as e:
     
     errorSinewave.set_volume(VolumeInDecibels)
     errorSinewave.play()
-    time.sleep(0.3)
+    time.sleep(0.35)
     # errorSinewave.set_volume(smoothlyMuted)
     # time.sleep(fadeoutTime + dotDuration)
     # errorSinewave.stop()
