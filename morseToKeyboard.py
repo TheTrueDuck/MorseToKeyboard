@@ -99,7 +99,7 @@ try:
         "..-.-": "¿",
         
         #--not official--
-        "...-.": " ", #VE = VErified = Space
+        "...-.": " ", #VE = VErified = Space. Also ŝ
         ".-..-.-": "I, in my exalted wisdom and unbridled ambition, ", #EXA = EXAlted                
     }        
     
@@ -280,9 +280,16 @@ try:
     KeysThatAreSuppressedForSomeReason = {
         ".-.-": keyboard.Key.enter, #RT = ReTurn = enter. Also ä
         #--not official--
-        "........": keyboard.Key.backspace, #HH
+        "........": keyboard.Key.backspace, #E*8 = Error
+        
+        "-.-.-": keyboard.Key.home, #CT = home CweeT home. Also Start of work
+        "...-.-": keyboard.Key.end, #VA = end oV it All. Also End of work
+        
         
         "....-.-.": keyboard.Key.esc, #ESC = ESCape     
+        
+        
+        
         
         # "...--.-": keyboard.Key.up, #3A = k3yboard Above = up arrow
         # "...---.": keyboard.Key.down, #3N = k3yboard dowN = down arrow
@@ -355,32 +362,33 @@ try:
     ExitWord = "...---..." #SOS
     
     """
-    ...---... exit
-    ---.-. | #OR
     \\
-    $
-    %
-    ^
-    *
-    tab
-    <>
+    ---.-. | #OR
     []
     {}
     `~
-    mouse
-    move big medium small up down left right
-    scroll big medium small up down left right
-    click left right middle 4 5
-    double click left right middle 4 5
-    drag/hold left right middle 4 5
-
-    release all held buttons
-    
+    tab
     home end, pg up, pg down
-
-    #$%^*
+    drag/hold left right middle 4 5
+    delete
+    
     for these, do a shift shortcut, so #HI3 for #
-    """
+    #
+    %
+    ^
+    *
+    <>
+    insert
+    pause
+    print screen
+    scroll lock
+    num lock caps lock
+    
+    release all held buttons
+    """            
+    
+    
+    
 
 
     fadeoutTime = 0.05
