@@ -100,6 +100,8 @@ try:
         
         #--not official--
         "...-.": " ", #VE = VErified = Space. Also ŝ
+        "---.-.": "|", #OR
+        "-......": "\\", #BS = BackSlash
         ".-..-.-": "I, in my exalted wisdom and unbridled ambition, ", #EXA = EXAlted                
     }        
     
@@ -355,6 +357,14 @@ try:
         ".....-": keyboard.Key.alt,   #HA = Hold Alt
         "....-.": keyboard.Key.ctrl,  #HN = Hold coNtrol
         "....--": keyboard.Key.cmd,   #HM = Hold coMMand
+
+        #".--.-..": keyboard.Key.cmd,   #HM = Hold coMMand
+        ".--..-..": mouse.Button.left,   #P
+        ".--..-.": mouse.Button.right,   #HM = Hold coMMand
+        ".--.--": mouse.Button.middle,   #HM = Hold coMMand
+        ".--.....-": mouse.Button.button8,   #HM = Hold coMMand
+        ".--......": mouse.Button.button9,   #HM = Hold coMMand
+        #etc
     }
 
     isKeyHeld = {key: False for morse, key in HeldKeys.items()}
@@ -362,8 +372,6 @@ try:
     ExitWord = "...---..." #SOS
     
     """
-    \\
-    ---.-. | #OR
     []
     {}
     `~
