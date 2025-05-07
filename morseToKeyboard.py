@@ -291,7 +291,9 @@ try:
         "-.-.-": keyboard.Key.home, #CT = home CweeT home. Also Start of work
         "...-.-": keyboard.Key.end, #VA = end oV it All. Also End of work
         
-        
+
+        #"....-.-.": keyboard.Key.tab, #ESC = ESCape     
+        ".-----": keyboard.Key.tab,
         "....-.-.": keyboard.Key.esc, #ESC = ESCape     
         
         
@@ -383,8 +385,7 @@ try:
     
     """
     `~
-    tab
-    home end, pg up, pg down
+    pg up, pg down
     delete
     
     for these, do a shift shortcut, so #HI3 for #
