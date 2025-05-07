@@ -102,6 +102,10 @@ try:
         "...-.": " ", #VE = VErified = Space. Also ŝ
         "---.-.": "|", #OR
         "-......": "\\", #BS = BackSlash
+        "-.--..": "[",
+        "-.--..-": "]",
+        "-.--...": "{",
+        "-.--...-": "}",
         ".-..-.-": "I, in my exalted wisdom and unbridled ambition, ", #EXA = EXAlted                
     }        
     
@@ -359,11 +363,17 @@ try:
         "....--": keyboard.Key.cmd,   #HM = Hold coMMand
 
         #".--.-..": keyboard.Key.cmd,   #HM = Hold coMMand
-        ".--..-..": mouse.Button.left,   #P
-        ".--..-.": mouse.Button.right,   #HM = Hold coMMand
-        ".--.--": mouse.Button.middle,   #HM = Hold coMMand
-        ".--.....-": mouse.Button.button8,   #HM = Hold coMMand
-        ".--......": mouse.Button.button9,   #HM = Hold coMMand
+        #".--..-..": mouse.Button.left,   #P
+        #".--..-.": mouse.Button.right,   #HM = Hold coMMand
+        #".--.--": mouse.Button.middle,   #HM = Hold coMMand
+        #".--.....-": mouse.Button.button8,   #HM = Hold coMMand
+        #".--......": mouse.Button.button9,   #HM = Hold coMMand
+        #etc
+        "-...-.": mouse.Button.left,   #D
+        "-...--": mouse.Button.right,   #HM = Hold coMMand
+        "-...---": mouse.Button.middle,   #HM = Hold coMMand
+        "-...-....-": mouse.Button.button8,   #HM = Hold coMMand
+        "-...-.....": mouse.Button.button9,   #HM = Hold coMMand
         #etc
     }
 
@@ -372,12 +382,9 @@ try:
     ExitWord = "...---..." #SOS
     
     """
-    []
-    {}
     `~
     tab
     home end, pg up, pg down
-    drag/hold left right middle 4 5
     delete
     
     for these, do a shift shortcut, so #HI3 for #
@@ -393,6 +400,7 @@ try:
     num lock caps lock
     
     release all held buttons
+    undo
     """            
     
     
@@ -756,8 +764,11 @@ try:
             key = HeldKeys[morse]
             isKeyHeld[key] = not isKeyHeld[key]
             # key.touch(HeldKeys[input], isKeyHeld[input])
-            if isKeyHeld[key]: controller.press(key)
-            else: controller.release(key)
+
+            appropriateController = controller if key is keyboard.Key else mouseController
+
+            if isKeyHeld[key]: appropriateController.press(key)
+            else: appropriateController.release(key)
             
             print(f"Key {key} pressed state is now {isKeyHeld[key]}!")
             print(f"Shift: {controller.shift_pressed}")
@@ -793,7 +804,8 @@ try:
 except Exception as e:
     # print(e)
     print("Error encountered!")
-    
+
+    errorSinewave = SineWave(pitch = 13, decibels=VolumeInDecibels, decibels_per_second=(VolumeInDecibels-smoothlyMuted) / fadeoutTime)
     errorSinewave.set_volume(VolumeInDecibels)
     errorSinewave.play()
     time.sleep(0.35)
