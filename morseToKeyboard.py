@@ -106,6 +106,8 @@ try:
         "-.--..-": "]",
         "-.--...": "{",
         "-.--...-": "}",
+        ".-.--": "~",
+        "-..--": "`",
         ".-..-.-": "I, in my exalted wisdom and unbridled ambition, ", #EXA = EXAlted                
     }        
     
@@ -401,7 +403,7 @@ try:
     num lock caps lock
     
     release all held buttons
-    undo
+    undo -.....
     """            
     
     
