@@ -112,55 +112,6 @@ try:
     }        
     
     SpecialKeys = {
-        #--not official--                                
-        # ".-..-.......": lambda: mouseController.move(0, -1), #EEEEEUIA = ElusivE*5 UI Above = move mouse up        
-        # ".-..-......": lambda: mouseController.move(0, -3), #EEEEUIA = ElusivE*4 UI Above = move mouse up        
-        # ".-..-.....": lambda: mouseController.move(0, -7), #EEEUIA = ElusivE*3 UI Above = move mouse up        
-        # ".-..-....": lambda: mouseController.move(0, -17), #EEUIA = ElusivE*2 UI Above = move mouse up        
-        # ".-..-...": lambda: mouseController.move(0, -37), #EUIA = ElusivE UI Above = move mouse up                    
-        # ".-..-..": lambda: mouseController.move(0, -73), #UIA = UI Above = move mouse up
-        # ".-..-..-": lambda: mouseController.move(0, -149), #TUIA = TiTanic UI Above = move mouse up        
-        # ".-..-..--": lambda: mouseController.move(0, -307), #TTUIA = TiTanic*2 UI Above = move mouse up        
-        # ".-..-..---": lambda: mouseController.move(0, -617), #TTTUIA = TiTanic*3 UI Above = move mouse up        
-        # ".-..-..----": lambda: mouseController.move(0, -1237), #TTTTUIA = TiTanic*4 UI Above = move mouse up
-        # ".-..-..-----": lambda: mouseController.move(0, -2477), #TTTTTUIA = TiTanic*5 UI Above = move mouse up
-        
-        # "-...-.......": lambda: mouseController.move(0, 1), #EEEEEUIN = ElusivE*5 UI dowN = move mouse down
-        # "-...-......": lambda: mouseController.move(0, 3), #EEEEUIN = ElusivE*4 UI dowN = move mouse down
-        # "-...-.....": lambda: mouseController.move(0, 7), #EEEUIN = ElusivE*3 UI dowN = move mouse down
-        # "-...-....": lambda: mouseController.move(0, 17), #EEUIN = ElusivE*2 UI dowN = move mouse down
-        # "-...-...": lambda: mouseController.move(0, 37), #EUIN = ElusivE UI dowN = move mouse down
-        # "-...-..": lambda: mouseController.move(0, 73), #UIN = UI dowN = move mouse down
-        # "-...-..-": lambda: mouseController.move(0, 149), #TUIN = TiTanic UI dowN = move mouse down
-        # "-...-..--": lambda: mouseController.move(0, 307), #TTUIN = TiTanic*2 UI dowN = move mouse down
-        # "-...-..---": lambda: mouseController.move(0, 617), #TTTUIN = TiTanic*3 UI dowN = move mouse down
-        # "-...-..----": lambda: mouseController.move(0, 1237), #TTTTUIN = TiTanic*4 UI dowN = move mouse down
-        # "-...-..-----": lambda: mouseController.move(0, 2477), #TTTTTUIN = TiTanic*5 UI dowN = move mouse down
-        
-        # "....-.......": lambda: mouseController.move(1, 0), #EEEEEUII = ElusivE*5 UI rIght = move mouse right
-        # "....-......": lambda: mouseController.move(3, 0), #EEEEUII = ElusivE*4 UI rIght = move mouse right
-        # "....-.....": lambda: mouseController.move(7, 0), #EEEUII = ElusivE*3 UI rIght = move mouse right
-        # "....-....": lambda: mouseController.move(17, 0), #EEUII = ElusivE*2 UI rIght = move mouse right
-        # "....-...": lambda: mouseController.move(37, 0), #EUII = ElusivE UI rIght = move mouse right
-        # "....-..": lambda: mouseController.move(73, 0), #UII = UI rIght = move mouse right        
-        # "....-..-": lambda: mouseController.move(149, 0), #TUII = TiTanic UI rIght = move mouse right
-        # "....-..--": lambda: mouseController.move(307, 0), #TTUII = TiTanic*2 UI rIght = move mouse right
-        # "....-..---": lambda: mouseController.move(617, 0), #TTTUII = TiTanic*3 UI rIght = move mouse right
-        # "....-..----": lambda: mouseController.move(1237, 0), #TTTTUII = TiTanic*4 UI rIght = move mouse right
-        # "....-..-----": lambda: mouseController.move(2477, 0), #TTTTTUII = TiTanic*5 UI rIght = move mouse right                
-        
-        # "--..-.......": lambda: mouseController.move(-1, 0), #EEEEEUIM = ElusivE*5 UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-......": lambda: mouseController.move(-3, 0), #EEEEUIM = ElusivE*4 UI towards Marxism/coMMunisM (left) = move mouse left        
-        # "--..-.....": lambda: mouseController.move(-7, 0), #EEEUIM = ElusivE*3 UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-....": lambda: mouseController.move(-17, 0), #EEUIM = ElusivE*2 UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-...": lambda: mouseController.move(-37, 0), #EUIM = ElusivE UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-..": lambda: mouseController.move(-73, 0), #UIM = UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-..-": lambda: mouseController.move(-149, 0), #TUIM = TiTanic UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-..--": lambda: mouseController.move(-307, 0), #TTUIM = TiTanic*2 UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-..---": lambda: mouseController.move(-617, 0), #TTTUIM = TiTanic*3 UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-..----": lambda: mouseController.move(-1237, 0), #TTTTUIM = TiTanic*4 UI towards Marxism/coMMunisM (left) = move mouse left
-        # "--..-..-----": lambda: mouseController.move(-2477, 0), #TTTTTUIM = TiTanic*5 UI towards Marxism/coMMunisM (left) = move mouse left
-        
         ".-.--......": lambda: mouseController.move(0, -1), #APEEEEE = Above Pointer ElusivE*5 = move mouse up        
         ".-.--.....": lambda: mouseController.move(0, -3), #APEEEE = Above Pointer ElusivE*4 = move mouse up        
         ".-.--....": lambda: mouseController.move(0, -7), #APEEE = Above Pointer ElusivE*3 = move mouse up        
@@ -211,23 +162,6 @@ try:
         
         
         
-        #maybe do direction-move-intensity instead? check if thats possible
-
-        # "..---.-": lambda: mouseController.click(mouse.Button.scroll_up), #2A = scroll 2 Above = scroll up
-        # "..----.": lambda: mouseController.click(mouse.Button.scroll_down), #2N = scroll 2 dowN = scroll down
-        # "..---.": lambda: mouseController.click(mouse.Button.scroll_left), #2E = scroll 2 lEft = scroll left
-        # "..----": lambda: mouseController.click(mouse.Button.scroll_right), #2T = scroll 2 righT = scroll right
-        
-        # "..---.-": lambda: mouseController.scroll(0, 1), #2A = scroll 2 Above = scroll up
-        # "..----.": lambda: mouseController.scroll(0, -1), #2N = scroll 2 dowN = scroll down
-        # "..---.": lambda: mouseController.scroll(-1, 0), #2E = scroll 2 lEft = scroll left
-        # "..----": lambda: mouseController.scroll(1, 0), #2T = scroll 2 righT = scroll right
-        
-        # "..---.-": lambda: mouseController.scroll(0, 1), #2A = scroll 2wards Above = scroll up
-        # "..----.": lambda: mouseController.scroll(0, -1), #2N = scroll 2wards dowN = scroll down
-        # "..---..": lambda: mouseController.scroll(1, 0), #2I = scroll 2wards rIght = scroll right
-        # "..-----": lambda: mouseController.scroll(-1, 0), #2M = scroll 2wards Marxism/coMMunisM (left) = scroll left
-        
         ".-..---": lambda: mouseController.scroll( 0, 1), #A2 = Above scroll 2wards = scroll up
         "-...---": lambda: mouseController.scroll( 0,-1), #N2 = dowN scroll 2wards = scroll down
         "....---": lambda: mouseController.scroll( 1, 0), #I2 = rIght scroll 2wards = scroll right
@@ -242,21 +176,7 @@ try:
         "--------": lambda: mouseController.click(mouse.Button.right, 2), #MOMT = MOuse Multi righT         = mouse double right click
         "---------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 2)), #MOMM = MOuse Multi Middle      = mouse double middle click
         
-        # "------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.right, 1)),   #MOT = MOuse righT                = mouse right click
-        # # "-------": lambda: with OutMouseListener(): mouseController.click(mouse.Button.middle, 1), #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
-        # "-------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 1)), #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
-        # "--------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.right, 2)), #MOIT = MOuse twIce righT         = mouse double right click
-        # "---------": lambda: OutMouseListener(lambda: mouseController.click(mouse.Button.middle, 2)), #MOII = MOuse twIce mIddle      = mouse double middle click
-        
-        
-        # "-----.": mouse.Button.left,    #MOE = MOuse lEft                 = mouse left click
-        # "-----..": mouse.Button.left,   #MOEE = MOuse lEft lEft           = mouse left double click
-        # "-----...": mouse.Button.left,  #MOEEE = MOuse lEft lEft lEft     = mouse left triple click
-        # "-----....": mouse.Button.left, #MOEEEE = MOuse lEft lEft lEft Eh = mouse left slow triple click (sometimes instant triple click doesn't register)
-        # "------": mouse.Button.right,   #MOT = MOuse righT                = mouse right click
-        # "-------": mouse.Button.middle, #MOI = MOuse mIddle               = mouse middle click #!!!!!!!!!!!!!!shouldn't terminate!
-        # "--------": mouse.Button.right, #MOIT = MOuse twIce righT         = mouse double right click
-        # "---------": mouse.Button.middle, #MOII = MOuse twIce mIddle      = mouse double middle click
+
         #these numbered button seem to be offset by 4. I expect this is because button4-7 are taken by the scroll buttons
         #if these produce an error, it may be because windows doesn't support them. In that case, use Buttons x1 and x2 for back and forward and delete the rest.
         "-----....-": lambda: mouseController.click(mouse.Button.button8), #M4 = MOuse 4 = mouse button 4/back click
@@ -282,7 +202,6 @@ try:
         "-----..---....-": lambda: mouseController.click(mouse.Button.button28), #M24 = MOuse 24 = mouse button 24 click 
         "-----..---.....": lambda: mouseController.click(mouse.Button.button29), #M25 = MOuse 25 = mouse button 25 click 
         "-----..----....": lambda: mouseController.click(mouse.Button.button30), #M26 = MOuse 26 = mouse button 26 click 
-        
     }
     
     KeysThatAreSuppressedForSomeReason = {
@@ -295,7 +214,6 @@ try:
         "...-.-": keyboard.Key.end, #VA = end oV it All. Also End of work
         
 
-        #"....-.-.": keyboard.Key.tab, #ESC = ESCape     
         ".-----": keyboard.Key.tab,
         "....-.-.": keyboard.Key.esc, #ESC = ESCape     
         
@@ -304,16 +222,6 @@ try:
         "-.---": keyboard.Key.pg_down, #NO = dOwN = page down
         
         
-        
-        # "...--.-": keyboard.Key.up, #3A = k3yboard Above = up arrow
-        # "...---.": keyboard.Key.down, #3N = k3yboard dowN = down arrow
-        # "...--.": keyboard.Key.left, #3E = k3yboard lEft = left arrow
-        # "...---": keyboard.Key.right, #3T = k3yboard righT = right arrow  
-        
-        # "...--.-": keyboard.Key.up, #3A = k3yboard Above = up arrow
-        # "...---.": keyboard.Key.down, #3N = k3yboard dowN = down arrow
-        # "...--..": keyboard.Key.right, #3I = k3yboard rIght = right arrow  
-        # "...----": keyboard.Key.left, #3M = k3yboard towards Marxism/coMMunisM (left) = left arrow
         
         ".-...--": keyboard.Key.up, #A3 = Above k3yboard = up arrow
         "-....--": keyboard.Key.down, #N3 = dowN k3yboard = down arrow
@@ -403,7 +311,7 @@ try:
     num lock caps lock
     
     release all held buttons
-    undo
+    undo -.--..
     """            
     
     
@@ -528,47 +436,7 @@ try:
                                 
 
 
-    mouseController = mouse.Controller()
-    
-    
-    mouseController.move(73, 73)
-    # mouseController.move(73, 73)
-    
-    # mouseController.move(2477, 2477)
-    
-    # # Read pointer position
-    # print('The current pointer position is {0}'.format(
-    #     mouse.position))
-
-    # # Set pointer position
-    # mouse.position = (10, 20)
-    # print('Now we have moved it to {0}'.format(
-    #     mouse.position))
-
-    # # Move pointer relative to current position
-    # mouse.move(5, -5)
-
-    # print('Now we have moved it to {0}'.format(
-    #     mouse.position))
-
-    # # Press and release
-    # mouse.press(Button.left)
-    # mouse.release(Button.left)
-    
-    # mouseController.press(Button.button8)
-    # mouseController.release(Button.button8)
-    # mouseController.press(Button.scroll_up)
-    # mouseController.release(Button.scroll_up)
-    # mouseController.press(Button.scroll_left)
-    # mouseController.release(Button.scroll_left)
-
-    # # Double click; this is different from pressing and releasing
-    # # twice on macOS
-    # mouse.click(Button.left, 2)
-
-    # # Scroll two steps down
-    # mouse.scroll(0, 2)
-    
+    mouseController = mouse.Controller()    
         
     print("Listening to input! Press esc, middle mouse button, or input ...---... to terminate.")
 
@@ -589,28 +457,7 @@ try:
 
     controller = keyboard.Controller()
     
-    
-    
-    # with OutKeyboardListener():
-    #     controller.tap(keyboard.Key.esc) 
-    #     controller.tap(keyboard.Key.esc) 
-    # def multitap():
-    #     controller.tap(keyboard.Key.esc)
-    #     controller.tap(keyboard.Key.esc)
-    
-    # OutKeyboardListener(lambda: multitap())
-    
-    # controller.tap(keyboard.Key.esc) 
-    
-    # with OutMouseListener():
-    #     mouseController.click(mouse.Button.middle)     
-    
-    
-    
     canDoAutoSpace = False
-    # key.tap(keyboard.Key.caps_lock)
-    
-    # key.tap(keyboard.Key.enter)
 
     while mouseListener.is_alive() and keyboardListener.is_alive():
         # print("waiting")
@@ -740,18 +587,7 @@ try:
                 #so we have to stop the suppression, press the key twice (no idea why), and restart the suppression
                 controller.tap(key) 
                 controller.tap(key) 
-                
-                # key.press(output)
-                # key.release(output)
-                # key.press(output)
-                # key.release(output)
-                
-                
-                # key.tap(keyboard.Key.enter)
-                # key.tap(keyboard.Key.enter)
-                # key.tap(keyboard.Key.enter) 
-                # key.tap(keyboard.Key.enter) 
-                
+                                
                 keyboardListener = keyboard.Listener(
                     on_press=on_press,
                     on_release=on_release,
