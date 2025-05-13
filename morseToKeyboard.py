@@ -289,6 +289,7 @@ try:
         ".-.-": keyboard.Key.enter, #RT = ReTurn = enter. Also ä
         #--not official--
         "........": keyboard.Key.backspace, #E*8 = Error
+        "-.....": keyboard.Key.delete, #DEEE = DElEtE
         
         "-.-.-": keyboard.Key.home, #CT = home CweeT home. Also Start of work
         "...-.-": keyboard.Key.end, #VA = end oV it All. Also End of work
@@ -298,6 +299,9 @@ try:
         ".-----": keyboard.Key.tab,
         "....-.-.": keyboard.Key.esc, #ESC = ESCape     
         
+
+        "---.-": keyboard.Key.pg_up, #OA = AbOve = page up
+        "-.---": keyboard.Key.pg_down, #NO = dOwN = page down
         
         
         
@@ -386,10 +390,6 @@ try:
     ExitWord = "...---..." #SOS
     
     """
-    `~
-    pg up, pg down
-    delete
-    
     for these, do a shift shortcut, so #HI3 for #
     #
     %
@@ -403,7 +403,7 @@ try:
     num lock caps lock
     
     release all held buttons
-    undo -.....
+    undo
     """            
     
     
